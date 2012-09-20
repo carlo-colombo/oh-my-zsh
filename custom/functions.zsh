@@ -1,15 +1,8 @@
 function magnet
 {
-    wget http://zoink.it/torrent/$1.torrent --output-document=$HOME/Dropbox/torrent/$1.torrent
-}
+    #http://wiki.rtorrent.org/MagnetUri
 
-function flexplayer()
-{           
-    FLEX_PLAYER_DIRECTORY="$HOME/ipad.flexplayer"
-
-    if [[ ! -x "$FLEX_PLAYER_DIRECTORY" ]]; then
-        mkdir "$FLEX_PLAYER_DIRECTORY"
-    fi
-
-    ifuse --appid com.personasoftware.flexplayer $FLEX_PLAYER_DIRECTORY
+    # cd $HOME/Dropbox/torrent/ || exit    # set your watch directory here
+    # [[ "$1" =~ xt=urn:btih:([^&/]+) ]] || exit
+    # echo "d10:magnet-uri${#1}:${1}e" > "meta-${BASH_REMATCH[1]}.torrent"
 }
