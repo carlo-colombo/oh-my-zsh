@@ -19,6 +19,10 @@ if [[ -z "$ZSH_CUSTOM" ]]; then
     ZSH_CUSTOM="$ZSH/custom"
 fi
 
+if [[ -z "$ZSH_CUSTOM_HOST" ]]; then
+    ZSH_CUSTOM_HOST="$ZSH/custom-host"
+fi
+
 
 is_plugin() {
   local base_dir=$1
@@ -29,7 +33,9 @@ is_plugin() {
 # Add all defined plugins to fpath. This must be done
 # before running compinit.
 for plugin ($plugins); do
-  if is_plugin $ZSH_CUSTOM $plugin; then
+  if is_plugin $ZSH_CUSTOM_HOST $plugin; then
+    fpath=($ZSH_CUSTOM_HOST/$HOST/plugins/$plugin $fpath)
+  elif is_plugin $ZSH_CUSTOM $plugin; then
     fpath=($ZSH_CUSTOM/plugins/$plugin $fpath)
   elif is_plugin $ZSH $plugin; then
     fpath=($ZSH/plugins/$plugin $fpath)
@@ -43,7 +49,9 @@ compinit -i
 
 # Load all of the plugins that were defined in ~/.zshrc
 for plugin ($plugins); do
-  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+  if [ -f $ZSH_CUSTOM_HOST/$HOST/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH_CUSTOM_HOST/$HOST/plugins/$plugin/$plugin.plugin.zsh
+  elif [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
     source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
   elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
     source $ZSH/plugins/$plugin/$plugin.plugin.zsh
@@ -52,6 +60,7 @@ done
 
 # Load all of your custom configurations from custom/
 for config_file ($ZSH_CUSTOM/*.zsh(N)) source $config_file
+for config_file ($ZSH_CUSTOM_HOST/$HOST/*.zsh(N)) source $config_file
 
 # Load the theme
 if [ "$ZSH_THEME" = "random" ]
