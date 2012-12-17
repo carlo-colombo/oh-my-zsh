@@ -3,6 +3,7 @@ if [[ -z $(who am i) ]]; then
 else
     PROMPT_HOST='%{$fg_bold[yellow]%}<%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%}@%{$fg_bold[magenta]%}%m%{$fg_bold[yellow]%}>'
 fi
+PROMPT_JAVA_VERSION_SHORT_NAME=' %{$fg_bold[cyan]%}$JAVA_VERSION_SHORT_NAME'
 
 PROMPT=$PROMPT_HOST'%{%(?.$fg_bold[cyan].$fg_bold[red])%}%(?.☁.☢) %{$fg_bold[green]%}%p %{$fg[green]%}%3~ %{$fg_bold[cyan]%}$JAVA_VERSION_SHORT_NAME$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
