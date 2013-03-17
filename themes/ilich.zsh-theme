@@ -4,7 +4,8 @@ yellow=221
 if [[ -z $SSH_CONNECTION ]]; then
     PROMPT_HOST=''
 else
-    PROMPT_HOST='%{$fg_bold[yellow]%}<%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%}@%{$fg_bold[magenta]%}%m%{$fg_bold[yellow]%}> '
+    PROMPT_HOST='%{$fg_bold[yellow]%}<%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%}@%{$fg_bold[magenta]%}%m%{$fg_bold[yellow]%}>
+'
 fi
 PROMPT_JAVA_VERSION_SHORT_NAME=' %{$fg_bold[cyan]%}$JAVA_VERSION_SHORT_NAME'
 
