@@ -7,3 +7,4 @@ alias modall='sudo modprobe --all vboxdrv vboxnetadp vboxnetflt vboxpci'
 
 alias vpnc='sudo vpnc'
 alias vpnc-disconnect='sudo /usr/sbin/vpnc-disconnect'
+alias grails-clean='rm target -rf && grails clean && grails -reloading'
