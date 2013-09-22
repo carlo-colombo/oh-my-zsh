@@ -26,3 +26,8 @@ function git_dropbox_init
     create_bare_repo   $repo_name
     set_dropbox_remote $repo_name "${1:-origin}"
 }
+
+activate() {
+  export VIRTUAL_ENV_DISABLE_PROMPT='1'
+  source ./$1/bin/activate
+}
