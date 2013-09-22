@@ -22,7 +22,7 @@ function virtualenv_info {
 }
 
 function gvm_info {
-  brackets "grails-$(readlink ~/.gvm/grails/current | xargs basename)" yellow
+  brackets "grails-$(__gvmtool_current grails | cut -d' ' -f4)" yellow
 }
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$fg[cyan]%}"
