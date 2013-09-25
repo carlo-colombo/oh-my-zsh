@@ -1,2 +1,2 @@
-alias sus='sudo pm-suspend'
-alias hib='sudo pm-hibernate'
+alias sus='systemctl suspend'
+alias hib='systemctl hibernate'
