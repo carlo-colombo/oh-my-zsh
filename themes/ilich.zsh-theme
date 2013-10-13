@@ -7,6 +7,7 @@ else
     PROMPT_HOST='%{$fg_bold[yellow]%}<%{$fg_bold[cyan]%}%n%{$fg_bold[yellow]%}@%{$fg_bold[magenta]%}%m%{$fg_bold[yellow]%}>
 '
 fi
+
 PROMPT_JAVA_VERSION_SHORT_NAME=' %{$fg_bold[cyan]%}$JAVA_VERSION_SHORT_NAME'
 
 PROMPT=$PROMPT_HOST'%{%{$fg_bold[green]%}%p%{$fg[green]%}%3~ %{$fg_bold[cyan]%}$JAVA_VERSION_SHORT_NAME$(virtualenv_info)$(gvm_info)$(git_prompt_info)%{$fg_bold[blue]%} % 
@@ -18,11 +19,10 @@ function brackets {
 
 function virtualenv_info {
   [ $VIRTUAL_ENV ] && brackets $(basename $VIRTUAL_ENV) red
-
 }
 
 function gvm_info {
-  brackets "grails-$(__gvmtool_current grails | cut -d' ' -f4)" yellow
+	test -d grails-app && type __gvmtool_current > /dev/null && brackets "grails-$(__gvmtool_current grails | cut -d' ' -f4)" yellow
 }
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$fg[cyan]%}"
