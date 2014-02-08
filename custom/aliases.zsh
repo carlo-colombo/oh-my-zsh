@@ -5,3 +5,4 @@ alias gcam='git commit -am $1'
 alias s='startx'
 alias shutdown='sudo shutdown' 
 alias poweroff='sudo poweroff'
+alias fm="dolphin 2> /dev/null ."
