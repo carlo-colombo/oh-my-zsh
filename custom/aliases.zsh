@@ -6,3 +6,6 @@ alias s='startx'
 alias shutdown='sudo shutdown' 
 alias poweroff='sudo poweroff'
 alias fm="dolphin 2> /dev/null ."
+alias docker="sudo docker"
+
+alias j="z"

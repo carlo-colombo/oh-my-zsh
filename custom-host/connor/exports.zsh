@@ -5,3 +5,4 @@ export JAVA_OPTS="-Xmx2000M -XX:MaxPermSize=256M"
 export CATALINA_OPTS="-XX:MaxPermSize=256M"
 
 export SVN_MERGE="kdiff3"
+export _Z_DATA="$HOME/.z"
